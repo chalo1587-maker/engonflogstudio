@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENGONFLOG Studio | Producción Audiovisual & Estrategia Digital para MYPES</title>
+    <meta name="description" content="Estudio audiovisual móvil en Lima. Videos verticales, guiones persuasivos y diseño para emprendedores y MYPES. Entrega express en 48-72h.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABLES GLOBALES & RESET --- */
+        :root {
+            --bg-dark: #0d0f12;
+            --bg-card: #15181e;
+            --bg-card-hover: #1c2029;
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #ffc83b 100%);
+            --text-main: #f0f2f5;
+            --text-muted: #a0a5b5;
+            --border-color: #2a2f3d;
+            --whatsapp-color: #25d366;
+            --font-family: 'Poppins', sans-serif;
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        /* --- UI COMPONENTS --- */
+        .btn-gold {
+            background: var(--gold-gradient);
+            color: #000;
+            font-weight: 700;
+            padding: 14px 28px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 span {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .badge {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            border: 1px solid var(--gold-primary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background: rgba(13, 15, 18, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--gold-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-primary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 160px 0 100px;
+            background: radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.08) 0%, rgba(13, 15, 18, 1) 70%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .hero-trust {
+            margin-top: 25px;
+            display: flex;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .hero-mockup {
+            text-align: center;
+            position: relative;
+        }
+
+        .phone-frame {
+            width: 260px;
+            height: 520px;
+            background: #222;
+            border-radius: 40px;
+            border: 4px solid var(--border-color);
+            margin: 0 auto;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(212, 175, 55, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #1a1c23, #2a2d3d);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .play-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gold-gradient);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #000;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+        }
+
+        /* --- VALUE PROPOSITION --- */
+        .value-prop {
+            padding: 90px 0;
+            background-color: #111318;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .value-card {
+            background: var(--bg-card);
+            padding: 35px 25px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .value-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-5px);
+            background: var(--bg-card-hover);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .value-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--gold-light);
+        }
+
+        .value-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- CATALOG SECTION --- */
+        .catalog {
+            padding: 100px 0;
+        }
+
+        .module-title {
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            margin: 40px 0 25px;
+            border-left: 4px solid var(--gold-primary);
+            padding-left: 15px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .price-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            font-weight: 800;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            white-space: nowrap;
+        }
+
+        .service-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .deliverables-list {
+            margin-bottom: 25px;
+        }
+
+        .deliverables-list li {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .deliverables-list li::before {
+            content: "✓";
+            color: var(--gold-primary);
+            font-weight: bold;
+        }
+
+        /* --- ABOUT & FOUNDER --- */
+        .about {
+            padding: 90px 0;
+            background: #111318;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .founder-avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: var(--gold-gradient);
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            color: #000;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        /* --- FAQ --- */
+        .faq {
+            padding: 100px 0;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            padding: 20px 25px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--gold-light);
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #08090b;
+            padding: 50px 0 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .footer-info {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- FLOATING WHATSAPP BUTTON --- */
+        .float-whatsapp {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--whatsapp-color);
+            color: #fff;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .float-whatsapp:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* --- RESPONSIVE MOBILE MEDIA QUERIES --- */
+        @media (max-width: 992px) {
+            .hero-grid, .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-trust {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/51900000000?text=Hola%20ENGONFLOG%20Studio,%20quiero%20información%20sobre%20sus%20servicios%20audiovisuales" class="float-whatsapp" target="_blank" aria-label="Contacto por WhatsApp">
+        💬
+    </a>
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">ENGONFLOG <span>Studio</span></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#ventajas">¿Por qué nosotros?</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#nosotros">El Fundador</a></li>
+                    <li><a href="#faq">Preguntas Frecuentes</a></li>
+                </ul>
+            </nav>
+            <a href="#servicios" class="btn-gold">Ver Tarifas</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <span class="badge">🎬 Estudio Audiovisual Móvil en Lima</span>
+                <h1>Transforma vistas en ventas reales con videos verticales de alto impacto</h1>
+                <p>Creamos guiones persuasivos con ganchos de 3 segundos, grabamos en tu local con audio e iluminación profesional y te entregamos contenido listo para vender en 48 a 72 horas.</p>
+                <a href="https://wa.me/51900000000?text=Hola,%20deseo%20agendar%20una%20sesión%20audiovisual" class="btn-gold" target="_blank">
+                    📲 Reserva tu Sesión por WhatsApp
+                </a>
+                <div class="hero-trust">
+                    <span>✓ RUC 10 Formalizado</span>
+                    <span>✓ Boleta & Factura SUNAT</span>
+                    <span>✓ Cobertura en Lima Moderna</span>
+                </div>
+            </div>
+            <div class="hero-mockup">
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <div class="play-icon">▶</div>
+                        <h4 style="font-size:0.9rem; margin-bottom:5px;">Video Comercial MYPE</h4>
+                        <p style="font-size:0.75rem; color:var(--text-muted);">Formato Vertical 9:16 (TikTok/Reels)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUE PROPOSITION -->
+    <section class="value-prop" id="ventajas">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Por qué trabajar con <span>ENGONFLOG Studio</span>?</h2>
+                <p>Diseñado especialmente para las necesidades y el presupuesto de las MYPES peruanas.</p>
+            </div>
+            <div class="value-grid">
+                <div class="value-card">
+                    <span class="value-icon">📄</span>
+                    <h3>Formalidad Tributaria (RUC 10)</h3>
+                    <p>Emitimos Boleta o Factura Electrónica SUNAT (RUC 10485671116) para que puedas deducir tus gastos de publicidad con total transparencia legal.</p>
+                </div>
+                <div class="value-card">
+                    <span class="value-icon">🎥</span>
+                    <h3>Kit de Rodaje en tu Local</h3>
+                    <p>Nos desplazamos a tu tienda, taller o stand de feria equipado con micrófonos inalámbricos de solapa y luz LED portátil profesional.</p>
+                </div>
+                <div class="value-card">
+                    <span class="value-icon">⚡</span>
+                    <h3>Entrega Express 48-72h</h3>
+                    <p>Recibe tus archivos optimizados en formato 9:16 con subtítulos dinámicos directamente en carpetas privadas de Google Drive.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATALOG OF SERVICES -->
+    <section class="catalog" id="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Catálogo Integral de <span>Servicios Modulares</span></h2>
+                <p>Elige el paquete ideal para el momento comercial de tu emprendimiento.</p>
+            </div>
+
+            <!-- MÓDULO A -->
+            <h3 class="module-title">Módulo A: Producción Audiovisual y Eventos</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-title">Cobertura en Ferias</div>
+                            <div class="price-tag">S/. 150.00</div>
+                        </div>
+                        <p class="service-desc">Convierte tu participación presencial en ferias en activo digital permanente para atraer más clientes.</p>
+                        <ul class="deliverables-list">
+                            <li>Grabación in situ de tu stand</li>
+                            <li>Demostración de productos y testimonios</li>
+                            <li>1 a 2 videos resumen editados</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/51900000000?text=Cotizar%20Cobertura%20en%20Ferias" class="btn-gold" style="width:100%; text-align:center; justify-content:center;">Cotizar Servicio</a>
+                </div>
+
+                <div class="service-card" style="border-color: var(--gold-primary);">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-title">Pack Básico (4 Videos)</div>
+                            <div class="price-tag">S/. 300.00</div>
+                        </div>
+                        <p class="service-desc">Ideal para empezar a posicionar tus productos estrella con dinamismo y calidad técnica profesional.</p>
+                        <ul class="deliverables-list">
+                            <li>4 Guiones comerciales enfocados</li>
+                            <li>1 Rodaje con kit móvil (Audio + LED)</li>
+                            <li>Edición express con subtítulos</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/51900000000?text=Reservar%20Pack%20Básico%20300" class="btn-gold" style="width:100%; text-align:center; justify-content:center;">Reservar Pack</a>
+                </div>
+
+                <div class="service-card">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-title">Pack Pro Mensual</div>
+                            <div class="price-tag">S/. 600.00</div>
+                        </div>
+                        <p class="service-desc">Sistema de contenido mensual continuo para aceleración constante de ventas y marca.</p>
+                        <ul class="deliverables-list">
+                            <li>8 a 12 Videos verticales al mes</li>
+                            <li>Planificación estratégica de contenidos</li>
+                            <li>Hasta 2 rondas de cambios incluidas</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/51900000000?text=Reservar%20Pack%20Pro%20Mensual" class="btn-gold" style="width:100%; text-align:center; justify-content:center;">Contratar Plan</a>
+                </div>
+            </div>
+
+            <!-- MÓDULO B -->
+            <h3 class="module-title">Módulo B: Estrategia Creativa y Redacción Persuasiva</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-title">Publicidad & Guiones 3S</div>
+                            <div class="price-tag">S/. 150.00</div>
+                        </div>
+                        <p class="service-desc">Diseño de concepto creativo y redacción de narrativa orientada a la acción comercial inmediata.</p>
+                        <ul class="deliverables-list">
+                            <li>Banco de ganchos de 3 segundos</li>
+                            <li>Estructura problema-solución</li>
+                            <li>Llamados a la acción (CTA) a WhatsApp</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/51900000000?text=Solicitar%20Guiones%20Persuasivos" class="btn-gold" style="width:100%; text-align:center; justify-content:center;">Solicitar Guiones</a>
+                </div>
+
+                <div class="service-card">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-title">Marketing Digital 360°</div>
+                            <div class="price-tag">S/. 600.00</div>
+                        </div>
+                        <p class="service-desc">Organiza tus canales digitales y convierte seguidores en clientes mediante un plan estructurado.</p>
+                        <ul class="deliverables-list">
+                            <li>Parrilla de contenidos de 30 días</li>
+                            <li>Optimización de WhatsApp Business</li>
+                            <li>Gestión de campañas Meta/TikTok Ads</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/51900000000?text=Plan%20Marketing%20Digital%360" class="btn-gold" style="width:100%; text-align:center; justify-content:center;">Contratar Plan</a>
+                </div>
+            </div>
+
+            <!-- MÓDULO C -->
+            <h3 class="module-title">Módulo C: Identidad de Marca y Postproducción</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-title">Diseño de Logotipo / Branding</div>
+                            <div class="price-tag">S/. 150.00</div>
+                        </div>
+                        <p class="service-desc">Construye una identidad visual coherente y reconocible para tus productos y redes sociales.</p>
+                        <ul class="deliverables-list">
+                            <li>Logotipo vectorial en alta resolución</li>
+                            <li>Paleta cromática oficial (HEX/CMYK)</li>
+                            <li>Manual de uso básico de marca</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/51900000000?text=Diseño%20de%20Logotipo" class="btn-gold" style="width:100%; text-align:center; justify-content:center;">Diseñar Marca</a>
+                </div>
+
+                <div class="service-card">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-title">Edición Express / Postproducción</div>
+                            <div class="price-tag">S/. 150.00</div>
+                        </div>
+                        <p class="service-desc">Transformamos las grabaciones de tu propio celular en piezas publicitarias profesionales.</p>
+                        <ul class="deliverables-list">
+                            <li>Selección y corte de tomas ágiles</li>
+                            <li>Corrección de color y sonido</li>
+                            <li>Subtítulos dinámicos en 48-72h</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/51980813496?text=Cotizar%20Edicion%20Express" class="btn-gold" style="width:100%; text-align:center; justify-content:center;">Enviar Material</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT FOUNDER -->
+    <section class="about" id="nosotros">
+        <div class="container about-grid">
+            <div class="about-image">
+                <div class="founder-avatar">👨‍🎓</div>
+                <h3 style="color:var(--gold-light);">Enrique Gonzalo Flores G.</h3>
+                <p style="font-size:0.85rem; color:var(--text-muted);">Fundador & Director Creativo</p>
+            </div>
+            <div class="about-text">
+                <span class="badge">Sobre el Estudio</span>
+                <h2>Comunicación Profesional al servicio del Emprendedor</h2>
+                <p>ENGONFLOG Studio nació en Jesús María bajo la dirección de Enrique Gonzalo Flores Guevara, profesional graduado en Comunicación Audiovisual por la Universidad Privada del Norte (UPN).</p>
+                <p>Conocemos de primera mano el esfuerzo del emprendedor peruano. Por eso, eliminamos los costos excesivos y los procesos burocráticos de las agencias tradicionales para ofrecerte un servicio cercano, ágil y enfocado en hacer crecer tu negocio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Preguntas <span>Frecuentes</span></h2>
+                <p>Resuelve todas tus dudas antes de iniciar tu proyecto con nosotros.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">1. ¿Cuáles son los medios de pago disponibles y cómo emiten comprobantes?</div>
+                    <div class="faq-answer">Aceptamos pagos directos por Yape, Plin y transferencia bancaria. Emitimos Boleta o Factura Electrónica SUNAT (RUC 10485671116) por cada servicio contratado.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">2. ¿En cuánto tiempo entregan los videos o materiales listos?</div>
+                    <div class="faq-answer">Nuestros plazos de entrega express son de 48 a 72 horas hábiles contadas a partir de la jornada de grabación o la recepción completa de tu material digital.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">3. ¿Cómo es el proceso de reserva de fecha y trabajo?</div>
+                    <div class="faq-answer">Iniciamos con un briefing vía WhatsApp o llamada. Aprobamos el guion, reservamos tu fecha de grabación con un abono del 50%, realizamos el rodaje y entregamos la muestra para revisión.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">4. ¿Cómo recibo mis archivos finales?</div>
+                    <div class="faq-answer">Entregamos tus archivos maestros en máxima resolución MP4 (formato vertical 9:16) subidos directamente a una carpeta privada en Google Drive.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="logo" style="margin-bottom:15px;">ENGONFLOG <span>Studio</span></div>
+            <p class="footer-info">Jesús María, Lima Metropolitana, Perú | RUC: 10485671116 | Titular: Enrique Gonzalo Flores Guevara</p>
+            <p class="footer-info" style="font-size:0.8rem; color:#666;">© 2026 ENGONFLOG Studio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
